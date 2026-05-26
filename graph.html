@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Survey Analysis</title>
+
+    <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#E6EEFA;
+            text-align:center;
+        }
+
+        .box{
+            width:900px;
+            margin:30px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        canvas{
+            max-height:450px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Survey Result Analysis</h1>
+
+
+<!-- QUESTION 1 -->
+
+<div class="box">
+
+    <h3>
+        1. How satisfied are you with your current role and overall work experience?
+    </h3>
+
+    <canvas id="q1"></canvas>
+
+</div>
+
+
+
+<!-- QUESTION 2 -->
+
+<div class="box">
+
+    <h3>
+        2. Do you feel you have the necessary tools, resources, and manageable workload to do your job effectively?
+    </h3>
+
+    <canvas id="q2"></canvas>
+
+</div>
+
+
+
+<!-- QUESTION 3 -->
+
+<div class="box">
+
+    <h3>
+        3. How well does your direct manager communicate expectations and support your success?
+    </h3>
+
+    <canvas id="q3"></canvas>
+
+</div>
+
+
+
+<!-- QUESTION 4 -->
+
+<div class="box">
+
+    <h3>
+        4. Does our organization support a healthy balance between your personal life and work responsibilities?
+    </h3>
+
+    <canvas id="q4"></canvas>
+
+</div>
+
+
+
+<!-- QUESTION 5 -->
+
+<div class="box">
+
+    <h3>
+        5. How satisfied are you with your total compensation and benefits package?
+    </h3>
+
+    <canvas id="q5"></canvas>
+
+</div>
+
+
+
+<script>
+
+/* ---------------- QUESTION LABELS ---------------- */
+
+const q1Labels = [
+
+    "Extremely satisfied",
+    "Somewhat satisfied",
+    "Neutral",
+    "Somewhat dissatisfied",
+    "Extremely dissatisfied"
+
+];
+
+
+const q2Labels = [
+
+    "Always",
+    "Most of the time",
+    "Sometimes",
+    "Rarely",
+    "Never"
+
+];
+
+
+const q3Labels = [
+
+    "Exceptionally well",
+    "Adequately",
+    "Average",
+    "Needs improvement",
+    "Poorly"
+
+];
+
+
+const q4Labels = [
+
+    "Strongly agree",
+    "Somewhat agree",
+    "Neutral",
+    "Somewhat disagree",
+    "Strongly disagree"
+
+];
+
+
+const q5Labels = [
+
+    "Very satisfied",
+    "Satisfied",
+    "Neutral",
+    "Dissatisfied",
+    "Very dissatisfied"
+
+];
+
+
+/* ---------------- GET DATA ---------------- */
+
+function getChartData(data){
+
+    return [
+
+        data.extremely_satisfied,
+        data.somewhat_satisfied,
+        data.neutral,
+        data.somewhat_dissatisfied,
+        data.extremely_dissatisfied
+
+    ];
+
+}
+
+
+
+/* ---------------- BAR GRAPH ---------------- */
+
+function makeBarChart(id, labels, data){
+
+    new Chart(document.getElementById(id), {
+
+        type: 'bar',
+
+        data: {
+
+            labels: labels,
+
+            datasets: [{
+
+                label: "Number of Employees",
+
+                data: getChartData(data),
+
+                backgroundColor: "#4A90E2",
+
+                borderWidth: 1
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            },
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+
+                    ticks: {
+
+                        stepSize: 1
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
+
+
+
+/* ---------------- CREATE ALL CHARTS ---------------- */
+
+makeBarChart(
+    "q1",
+    q1Labels,
+    {{ q1 | tojson }}
+);
+
+
+makeBarChart(
+    "q2",
+    q2Labels,
+    {{ q2 | tojson }}
+);
+
+
+makeBarChart(
+    "q3",
+    q3Labels,
+    {{ q3 | tojson }}
+);
+
+
+makeBarChart(
+    "q4",
+    q4Labels,
+    {{ q4 | tojson }}
+);
+
+
+makeBarChart(
+    "q5",
+    q5Labels,
+    {{ q5 | tojson }}
+);
+
+</script>
+
+</body>
+
+</html>

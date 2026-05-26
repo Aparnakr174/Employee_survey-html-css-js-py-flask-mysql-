@@ -1,0 +1,271 @@
+<html>
+
+<head>
+    <title>Employee Survey</title>
+
+    <style>
+
+        body{
+            background-color:#E6EEFA;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            font-family:Arial;
+        }
+
+        h1{
+            color:darkblue;
+        }
+
+        .box{
+            background-color:white;
+            width:900px;
+            padding:20px;
+            margin:15px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        /* 🔥 FIXED SPACING */
+        .box p{
+            font-size:16px;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        .options{
+            display:flex;
+            justify-content:space-between;
+            margin-top:10px;
+        }
+
+        .option-box{
+            text-align:center;
+        }
+
+        button{
+            padding:10px 25px;
+            background-color:#4A90E2;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Welcome {{username}}</h1>
+
+<h1>Employee Satisfaction Survey</h1>
+
+<form action="/submit" method="POST">
+
+<input type="hidden" name="username" value="{{username}}">
+<input type="hidden" name="email" value="{{ email }}">
+
+<!-- Question 1 -->
+<div class="box">
+
+<p>
+1. How satisfied are you with your current role and overall work experience?
+</p>
+
+<div class="options">
+
+<div class="option-box">
+<input type="radio" name="q1" value="5" required>
+<br>5<br>Extremely satisfied
+</div>
+
+<div class="option-box">
+<input type="radio" name="q1" value="4">
+<br>4<br>Somewhat satisfied
+</div>
+
+<div class="option-box">
+<input type="radio" name="q1" value="3">
+<br>3<br>Neutral
+</div>
+
+<div class="option-box">
+<input type="radio" name="q1" value="2">
+<br>2<br>Somewhat dissatisfied
+</div>
+
+<div class="option-box">
+<input type="radio" name="q1" value="1">
+<br>1<br>Extremely dissatisfied
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Question 2 -->
+<div class="box">
+
+<p>
+2. Do you feel you have the necessary tools, resources, and manageable workload to do your job effectively?
+</p>
+
+<div class="options">
+
+<div class="option-box">
+<input type="radio" name="q2" value="5" required>
+<br>5<br>Always
+</div>
+
+<div class="option-box">
+<input type="radio" name="q2" value="4">
+<br>4<br>Most of the time
+</div>
+
+<div class="option-box">
+<input type="radio" name="q2" value="3">
+<br>3<br>Sometimes
+</div>
+
+<div class="option-box">
+<input type="radio" name="q2" value="2">
+<br>2<br>Rarely
+</div>
+
+<div class="option-box">
+<input type="radio" name="q2" value="1">
+<br>1<br>Never
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Question 3 -->
+<div class="box">
+
+<p>
+3. How well does your direct manager communicate expectations and support your success?
+</p>
+
+<div class="options">
+
+<div class="option-box">
+<input type="radio" name="q3" value="5" required>
+<br>5<br>Exceptionally well
+</div>
+
+<div class="option-box">
+<input type="radio" name="q3" value="4">
+<br>4<br>Adequately
+</div>
+
+<div class="option-box">
+<input type="radio" name="q3" value="3">
+<br>3<br>Average
+</div>
+
+<div class="option-box">
+<input type="radio" name="q3" value="2">
+<br>2<br>Needs improvement
+</div>
+
+<div class="option-box">
+<input type="radio" name="q3" value="1">
+<br>1<br>Poorly
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Question 4 -->
+<div class="box">
+
+<p>
+4. Does our organization support a healthy balance between your personal life and work responsibilities?
+</p>
+
+<div class="options">
+
+<div class="option-box">
+<input type="radio" name="q4" value="5" required>
+<br>5<br>Strongly agree
+</div>
+
+<div class="option-box">
+<input type="radio" name="q4" value="4">
+<br>4<br>Somewhat agree
+</div>
+
+<div class="option-box">
+<input type="radio" name="q4" value="3">
+<br>3<br>Neutral
+</div>
+
+<div class="option-box">
+<input type="radio" name="q4" value="2">
+<br>2<br>Somewhat disagree
+</div>
+
+<div class="option-box">
+<input type="radio" name="q4" value="1">
+<br>1<br>Strongly disagree
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Question 5 -->
+<div class="box">
+
+<p>
+5. How satisfied are you with your total compensation and benefits package?
+</p>
+
+<div class="options">
+
+<div class="option-box">
+<input type="radio" name="q5" value="5" required>
+<br>5<br>Very satisfied
+</div>
+
+<div class="option-box">
+<input type="radio" name="q5" value="4">
+<br>4<br>Satisfied
+</div>
+
+<div class="option-box">
+<input type="radio" name="q5" value="3">
+<br>3<br>Neutral
+</div>
+
+<div class="option-box">
+<input type="radio" name="q5" value="2">
+<br>2<br>Dissatisfied
+</div>
+
+<div class="option-box">
+<input type="radio" name="q5" value="1">
+<br>1<br>Very dissatisfied
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

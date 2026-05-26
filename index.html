@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Employee Survey</title>
+
+    <style>
+
+        body{
+            text-align:center;
+            background-color:#F0FDF4;
+            height:100vh;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            
+            margin:20px;
+        }
+
+        h1{
+            color:darkblue;
+            margin-bottom:10px;
+        }
+
+        form{
+            background:white;
+            padding:25px;
+            width:380px;
+            border-radius:10px;
+            box-shadow:0px 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* MESSAGE */
+        .message{
+            color:red;
+            margin-bottom:15px;
+            font-weight:bold;
+        }
+
+        /* FORM ROW */
+        .form-row{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:18px;
+        }
+
+        label{
+            font-size:20px;
+            width:110px;
+            text-align:left;
+           
+        }
+
+        input{
+            width:230px;
+            padding:8px;
+            font-size:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        input:focus{
+            outline:none;
+            border-color:#4A90E2;
+        }
+
+        button{
+            padding:10px 20px;
+            background-color:#4A90E2;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+            margin-top:10px;
+        }
+
+        button:hover{
+            background-color:#357ABD;
+        }
+
+        .admin-link{
+            display:inline-block;
+            margin-top:18px;
+            padding:8px 15px;
+            background:#AED6F1;
+            color:black;
+            text-decoration:none;
+            border-radius:5px;
+           font-weight:bold;
+        }
+
+        .admin-link:hover{
+            background:#85C1E9;
+        }
+
+        .contact{
+            position:fixed;
+            bottom:10px;
+            right:20px;
+            text-align:right;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Employee Survey</h1>
+    <br>
+
+    <!-- ERROR MESSAGE -->
+
+    {% if message %}
+
+        <div class="message">
+            {{ message }}
+        </div>
+
+    {% endif %}
+
+
+    <!-- FORM -->
+
+    <form action="/survey" method="POST">
+        <br>
+
+        <!-- USERNAME -->
+
+        <div class="form-row">
+
+            <label>
+                Username:
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-row">
+
+            <label>
+                Email:
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button type="submit">
+
+            Start Survey
+
+        </button>
+
+    </form>
+
+
+    <!-- ADMIN LOGIN -->
+
+    <a href="/admin_login" class="admin-link">
+
+        Admin Login
+
+    </a>
+
+
+    <!-- CONTACT -->
+
+    <div class="contact">
+
+        <p>
+
+            For any queries call:
+            <b>9876543210</b>
+
+        </p>
+
+    </div>
+
+</body>
+
+</html>
